@@ -275,7 +275,7 @@ plpgsql_check_assign_to_target_type(PLpgSQL_checkstate *cstate,
 		StringInfoData str;
 
 		initStringInfo(&str);
-		if (targetdno != -1 && cstate->estate->err_stmt->cmd_type != PLPGSQL_STMT_RETURN)
+		if (targetdno != -1) // && cstate->estate->err_stmt->cmd_type != PLPGSQL_STMT_RETURN)
 		{
 			PLpgSQL_var *var = (PLpgSQL_var *) cstate->estate->datums[targetdno];
 			appendStringInfo(&str, "cast \"%s\" value to \"%s\" type: variable \"%s\"",
