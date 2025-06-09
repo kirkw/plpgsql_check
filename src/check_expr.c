@@ -1010,7 +1010,7 @@ plpgsql_check_expr_with_scalar_type(PLpgSQL_checkstate *cstate,
 				plpgsql_check_assign_to_target_type(cstate,
 								    expected_typoid, -1,
 								    TupleDescAttr(tupdesc, 0)->atttypid,
-								    is_immutable_null);
+								    is_immutable_null, -1);
 
 			ReleaseTupleDesc(tupdesc);
 		}
@@ -1151,7 +1151,7 @@ plpgsql_check_returned_expr(PLpgSQL_checkstate *cstate, PLpgSQL_expr *expr, bool
 					plpgsql_check_assign_to_target_type(cstate,
 									    func->fn_rettype, -1,
 									    TupleDescAttr(tupdesc, 0)->atttypid,
-									    is_immutable_null);
+									    is_immutable_null, -1);
 				}
 			}
 
